@@ -6,24 +6,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
+<!-- TextView là một View cho phép hiện thị các dòng chữ (text) trên màn hình, nó có nhiều thuộc tính
+tùy mục đích sử dụng mà áp dụng, như thiết lập cỡ chữ, font chữ, màu chữ (Nguyên) -->
     <TextView
         android:id="@+id/tv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="123456"
+        android:layout_height="150dp"
+        android:text=""
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bt7"
         android:background="#737171"
         android:textColor="#FFFFFF"
-        android:textSize="80dp"
-        android:gravity="right"
-
+        android:textSize="60dp"
+        android:gravity="right|center"
         />
 
-
+<!--Button là một loại View, nó hiện thị nút bấm để chờ người dùng bấm vào
+     Có các ràng buộc các hướng trên, dưới , trái , phải, ...  (Giang)-->
     <Button
         android:id="@+id/bt8"
         android:layout_width="0dp"
@@ -31,16 +31,19 @@
         android:layout_weight=".25"
 
         android:backgroundTint="#DAD5D5"
+
+        android:onClick="ButtonClick"
         android:text="8"
         android:textColor="@color/black"
         android:textSize="50dp"
-        app:strokeWidth="2dp"
-        app:layout_constraintLeft_toRightOf="@id/bt7"
-        app:layout_constraintTop_toBottomOf="@id/tv"
-        app:layout_constraintRight_toLeftOf="@id/bt9"
         app:layout_constraintBottom_toTopOf="@id/bt5"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
-        />
+        app:layout_constraintLeft_toRightOf="@id/bt7"
+        app:layout_constraintRight_toLeftOf="@id/bt9"
+        app:layout_constraintTop_toBottomOf="@id/tv"
+        app:strokeWidth="2dp" />
+<!--    Với loại spread_inside theo phương (đứng hoặc ) của xích
+các phần tử có thể gán kích thước bằng 0 và điều chỉnh lại theo trọng số weight (Nguyên)-->
 
 
     <Button
@@ -50,55 +53,58 @@
         android:layout_weight=".25"
 
         android:backgroundTint="#DAD5D5"
-        android:text="7"
 
+
+        android:onClick="ButtonClick"
+        android:text="7"
         android:textColor="@color/black"
         android:textSize="50dp"
+        app:layout_constraintBottom_toTopOf="@id/bt5"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:strokeWidth="2dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/bt8"
-        app:layout_constraintBottom_toTopOf="@id/bt5"
 
 
-
-        app:layout_constraintTop_toBottomOf="@id/tv" />
+        app:layout_constraintTop_toBottomOf="@id/tv"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:strokeWidth="2dp" />
 
     <Button
         android:id="@+id/btchia"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight=".25"
-        app:strokeWidth="2dp"
         android:backgroundTint="#FF9800"
-        android:text="%"
+
+        android:onClick="ButtonClick"
+        android:text="/"
         android:textColor="@color/black"
         android:textSize="50dp"
-        app:layout_constraintLeft_toRightOf="@id/bt9"
-        app:layout_constraintTop_toBottomOf="@id/tv"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@id/btnhan"
-        />
+        app:layout_constraintLeft_toRightOf="@id/bt9"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv"
+        app:strokeWidth="2dp" />
 
     <Button
         android:id="@+id/bt9"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight=".25"
-        app:strokeWidth="2dp"
         android:backgroundTint="#DAD5D5"
 
+
+        android:onClick="ButtonClick"
         android:text="9"
         android:textColor="@color/black"
-        android:textSize="50dp"
 
-        app:layout_constraintLeft_toRightOf="@id/bt8"
-        app:layout_constraintTop_toBottomOf="@id/tv"
-        app:layout_constraintRight_toLeftOf="@id/btchia"
-        app:layout_constraintVertical_chainStyle="packed"
+        android:textSize="50dp"
         app:layout_constraintBottom_toTopOf="@id/bt6"
-        />
+        app:layout_constraintLeft_toRightOf="@id/bt8"
+        app:layout_constraintRight_toLeftOf="@id/btchia"
+        app:layout_constraintTop_toBottomOf="@id/tv"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:strokeWidth="2dp" />
 
     <Button
         android:id="@+id/bt4"
@@ -107,254 +113,297 @@
         android:layout_weight=".25"
 
         android:backgroundTint="#DAD5D5"
-        app:strokeWidth="2dp"
+
+        android:onClick="ButtonClick"
         android:text="4"
         android:textColor="@color/black"
-        android:textSize="50dp"
 
-        app:layout_constraintTop_toBottomOf="@id/bt7"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/bt5"
+        android:textSize="50dp"
         app:layout_constraintBottom_toTopOf="@id/bt1"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/bt5"
 
-        />
+        app:layout_constraintTop_toBottomOf="@id/bt7"
+        app:strokeWidth="2dp" />
+
     <Button
         android:id="@+id/bt5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight=".25"
-        app:strokeWidth="2dp"
         android:backgroundTint="#DAD5D5"
 
+
+        android:onClick="ButtonClick"
         android:text="5"
         android:textColor="@color/black"
+
         android:textSize="50dp"
-
-        app:layout_constraintLeft_toRightOf="@id/bt4"
-        app:layout_constraintTop_toBottomOf="@id/bt8"
-        app:layout_constraintRight_toLeftOf="@id/bt6"
         app:layout_constraintBottom_toTopOf="@id/bt2"
+        app:layout_constraintLeft_toRightOf="@id/bt4"
+        app:layout_constraintRight_toLeftOf="@id/bt6"
 
-        />
+        app:layout_constraintTop_toBottomOf="@id/bt8"
+        app:strokeWidth="2dp" />
+
     <Button
         android:id="@+id/bt6"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight=".25"
-        app:strokeWidth="2dp"
         android:backgroundTint="#DAD5D5"
 
+
+        android:onClick="ButtonClick"
         android:text="6"
         android:textColor="@color/black"
-        android:textSize="50dp"
 
-        app:layout_constraintTop_toBottomOf="@id/bt9"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toTopOf="@id/bt3"
         app:layout_constraintLeft_toRightOf="@id/bt5"
         app:layout_constraintRight_toLeftOf="@id/btnhan"
-        app:layout_constraintBottom_toTopOf="@id/bt3"
 
-        />
+        app:layout_constraintTop_toBottomOf="@id/bt9"
+        app:strokeWidth="2dp" />
+
     <Button
         android:id="@+id/btnhan"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight=".25"
-        app:strokeWidth="2dp"
         android:backgroundTint="#FF9800"
 
+
+        android:onClick="ButtonClick"
         android:text="X"
         android:textColor="@color/black"
+
         android:textSize="50dp"
+        app:layout_constraintBottom_toTopOf="@id/bttru"
+        app:layout_constraintLeft_toRightOf="@id/bt6"
+        app:layout_constraintRight_toRightOf="parent"
 
         app:layout_constraintTop_toBottomOf="@id/btchia"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/bt6"
-        app:layout_constraintBottom_toTopOf="@id/bttru"
-
-        />
+        app:strokeWidth="2dp" />
 
     <Button
         android:id="@+id/bt1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight=".25"
-        app:strokeWidth="2dp"
         android:backgroundTint="#DAD5D5"
 
+
+        android:onClick="ButtonClick"
         android:text="1"
         android:textColor="@color/black"
-        android:textSize="50dp"
 
-        app:layout_constraintTop_toBottomOf="@id/bt4"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/bt2"
+        android:textSize="50dp"
         app:layout_constraintBottom_toTopOf="@id/bt0"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/bt2"
 
 
-        />
+        app:layout_constraintTop_toBottomOf="@id/bt4"
+        app:strokeWidth="2dp" />
+
     <Button
         android:id="@+id/bt2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight=".25"
-        app:strokeWidth="2dp"
         android:backgroundTint="#DAD5D5"
 
+
+        android:onClick="ButtonClick"
         android:text="2"
         android:textColor="@color/black"
-        android:textSize="50dp"
 
-        app:layout_constraintTop_toBottomOf="@id/bt5"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toTopOf="@id/bt0"
         app:layout_constraintLeft_toRightOf="@id/bt1"
         app:layout_constraintRight_toLeftOf="@id/bt3"
-        app:layout_constraintBottom_toTopOf="@id/bt0"
 
 
-        />
+        app:layout_constraintTop_toBottomOf="@id/bt5"
+        app:strokeWidth="2dp" />
+
     <Button
         android:id="@+id/bt3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight=".25"
-        app:strokeWidth="2dp"
         android:backgroundTint="#DAD5D5"
 
+
+        android:onClick="ButtonClick"
         android:text="3"
         android:textColor="@color/black"
-        android:textSize="50dp"
 
-        app:layout_constraintTop_toBottomOf="@id/bt6"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toTopOf="@id/btcham"
         app:layout_constraintLeft_toRightOf="@id/bt2"
         app:layout_constraintRight_toLeftOf="@id/bttru"
-        app:layout_constraintBottom_toTopOf="@id/btcham"
 
 
-        />
+        app:layout_constraintTop_toBottomOf="@id/bt6"
+        app:strokeWidth="2dp" />
+
     <Button
         android:id="@+id/bttru"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight=".25"
-        app:strokeWidth="2dp"
         android:backgroundTint="#FF9800"
 
+
+        android:onClick="ButtonClick"
         android:text="-"
         android:textColor="@color/black"
-        android:textSize="50dp"
 
+
+        android:textSize="50dp"
+        app:layout_constraintBottom_toTopOf="@id/btcong"
+        app:layout_constraintLeft_toRightOf="@id/bt3"
+        app:layout_constraintRight_toRightOf="parent"
 
         app:layout_constraintTop_toBottomOf="@id/btnhan"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/bt3"
-        app:layout_constraintBottom_toTopOf="@id/btcong"
+        app:strokeWidth="2dp" />
 
-        />
     <Button
         android:id="@+id/bt0"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight=".5"
-        app:strokeWidth="2dp"
+        android:layout_weight=".25"
         android:backgroundTint="#DAD5D5"
+
+        android:onClick="ButtonClick"
         android:text="0"
         android:textColor="@color/black"
         android:textSize="50dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bt1"
-        app:layout_constraintRight_toLeftOf="@id/btcham"
-        app:layout_constraintBottom_toTopOf="@id/btC"
-
-        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintBottom_toTopOf="@id/btDelete"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintHorizontal_weight="1"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btcham"
 
 
-        />
+        app:layout_constraintTop_toBottomOf="@id/bt1"
+        app:strokeWidth="2dp" />
+
     <Button
         android:id="@+id/btcham"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight=".25"
-        app:strokeWidth="2dp"
         android:backgroundTint="#DAD5D5"
 
+
+        android:onClick="ButtonClick"
         android:text="."
         android:textColor="@color/black"
-        android:textSize="50dp"
 
-        app:layout_constraintTop_toBottomOf="@id/bt3"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toTopOf="@id/btC"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintLeft_toRightOf="@id/bt0"
         app:layout_constraintRight_toLeftOf="@id/btcong"
-        app:layout_constraintBottom_toTopOf="@id/btbang"
-        app:layout_constraintHorizontal_weight="1"
 
 
+        app:layout_constraintTop_toBottomOf="@id/bt3"
+        app:strokeWidth="2dp" />
 
-
-        />
     <Button
         android:id="@+id/btcong"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight=".25"
-        app:strokeWidth="2dp"
         android:backgroundTint="#FF9800"
 
+
+        android:onClick="ButtonClick"
         android:text="+"
         android:textColor="@color/black"
-        android:textSize="50dp"
 
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bttru"
-        app:layout_constraintLeft_toRightOf="@id/btcham"
+        android:textSize="50dp"
         app:layout_constraintBottom_toTopOf="@id/btbang"
         app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/btcham"
+        app:layout_constraintRight_toRightOf="parent"
 
 
+        app:layout_constraintTop_toBottomOf="@id/bttru"
+        app:strokeWidth="2dp" />
 
         />
 
-        />
     <Button
         android:id="@+id/btC"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight=".5"
-        app:strokeWidth="2dp"
+
         android:backgroundTint="#FF9800"
 
+
+        android:onClick="ButtonClick"
         android:text="C"
         android:textColor="@color/black"
+
+
         android:textSize="50dp"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/btDelete"
 
-
-        app:layout_constraintTop_toBottomOf="@id/bt0"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/btbang"
 
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-
-        />
+        app:layout_constraintTop_toBottomOf="@id/btcham"
+        app:strokeWidth="1dp" />
 
     <Button
         android:id="@+id/btbang"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight=".5"
-        app:strokeWidth="2dp"
+
         android:backgroundTint="#FF9800"
 
+
+        android:onClick="ButtonClick"
         android:text="="
         android:textColor="@color/black"
+
         android:textSize="50dp"
-
-
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btcham"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintLeft_toRightOf="@id/btC"
+        app:layout_constraintRight_toRightOf="parent"
 
 
-        />
+        app:layout_constraintTop_toBottomOf="@id/btcong"
+        app:strokeWidth="1dp" />
+
+    <Button
+        android:id="@+id/btDelete"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:backgroundTint="#FF9800"
+
+        android:onClick="ButtonClick"
+        android:text="Del"
+
+        android:textColor="@color/black"
+        android:textSize="50dp"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btC"
+
+
+        app:layout_constraintTop_toBottomOf="@id/bt0"
+        app:strokeWidth="1dp"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
