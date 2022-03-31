@@ -7,11 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.mariuszgromada.math.mxparser.Expression;
+
 public class MainActivity extends AppCompatActivity {
     private TextView Screen;
     private Button btn0,btn1,btn2,btn3,btn4,btn5,btn6,
             btn7,btn8,btn9,btnPlus,btnSub,btnMulti,btnDiv,btnDot,btnCancel,btnEqual;
     private  String Input,Answer;
+
+    private String temp="";
 
     String workings="";
     @Override
@@ -20,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Screen= findViewById(R.id.tv);
-
         btn0=findViewById(R.id.bt0);
         btn1=findViewById(R.id.bt1);
         btn2=findViewById(R.id.bt2);
@@ -31,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         btn7=findViewById(R.id.bt7);
         btn8=findViewById(R.id.bt8);
         btn9=findViewById(R.id.bt9);
-
         btnPlus=findViewById(R.id.btcong);
         btnSub=findViewById(R.id.bttru);
         btnMulti=findViewById(R.id.btnhan);
@@ -45,10 +47,41 @@ public class MainActivity extends AppCompatActivity {
     public void ButtonClick(View view){
         Button button=(Button) view;
         String data= button.getText().toString();
+        String chuoi=Screen.getText().toString();
+
+        if(chuoi.contains("*")||chuoi.contains("/")) {
+            if(chuoi.contains("+")||chuoi.contains("-")){
+                if(data.equals("+")||data.equals("-")||data.equals("X")|| data.equals("/")) return;
+            }
+        }
+        if(Screen.getText().toString().equals("")){
+            if(data.equals("+")||data.equals("-")||data.equals("X")|| data.equals("/")) return;
+        }
+        if(temp.equals("+")||temp.equals("-")||temp.equals("X")|| temp.equals("/")){
+            if(temp!="" && temp.equals(data)) return;
+        }
+        if(data.equals("/")&& temp.equals("X")){
+            String[] a=Input.split("\\*");
+            Input=a[0]+"/";
+            Screen.setText(Input);
+            temp="/";
+            return;
+        }
+
+        if(data.equals("X")&& temp.equals("/")){
+            String[] a=Input.split("/");
+            Input=a[0]+"*";
+            Screen.setText(Input);
+            temp="X";
+            return;
+        }
+        temp=data;
         switch(data){
+
             case "C":
                 Input="";
                 break;
+
             case "X":
                 Sovle();
                 Input+="*";
@@ -58,11 +91,10 @@ public class MainActivity extends AppCompatActivity {
                 Answer+=Input;
                 break;
             case "Del":
-                if(!(Input=="")){
-                    String newText=Input.substring(0,Input.length()-1);
-                    Input=newText;
-                    break;
-                }
+                String newText=Input.substring(0,Input.length()-1);
+                Input=newText;
+                break;
+
 
              default:
                  if(Input==null){
@@ -106,7 +138,9 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }
-        else if(Input.split("-").length==2){
+        else if(Input.split("-").length>1){
+            System.out.println("Handle Sub");
+            System.out.println(Input);
             String number[]= Input.split("-");
             //to substract from negative number
             if(number[0]=="" && number.length==2) {
@@ -118,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
                     sub= Double.parseDouble(number[0]) - Double.parseDouble(number[1]);
                 }
                 else if(number.length==3){
-                    sub= Double.parseDouble(number[1]) - Double.parseDouble(number[2]);
+                    sub= (-Double.parseDouble(number[1])) - Double.parseDouble(number[2]);
                 }
 
 
