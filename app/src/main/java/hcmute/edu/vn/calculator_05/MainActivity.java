@@ -55,10 +55,16 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         if(Screen.getText().toString().equals("")){
-            if(data.equals("+")||data.equals("-")||data.equals("X")|| data.equals("/")) return;
+            if(data.equals("+")||data.equals("X")|| data.equals("/")) return;
+        }
+        if(Screen.getText().toString().equals("-")){
+            if(data.equals("+")||data.equals("X")|| data.equals("/")) return;
         }
         if(temp.equals("+")||temp.equals("-")||temp.equals("X")|| temp.equals("/")){
             if(temp!="" && temp.equals(data)) return;
+        }
+        if(temp.equals("+")||temp.equals("-")){
+            if(data.equals("+")||data.equals("-")) return;
         }
         if(data.equals("/")&& temp.equals("X")){
             String[] a=Input.split("\\*");
