@@ -97,10 +97,14 @@ public class MainActivity extends AppCompatActivity {
                 Answer+=Input;
                 break;
             case "Del":
-                String newText=Input.substring(0,Input.length()-1);
-                Input=newText;
-                break;
-
+                if(Screen.getText().toString().equals("")){
+                    break;
+                }
+                else {
+                    String newText = Input.substring(0, Input.length() - 1);
+                    Input = newText;
+                    break;
+                }
 
              default:
                  if(Input==null){
